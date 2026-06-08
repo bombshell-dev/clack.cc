@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "clack-cc",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-06-07",
+  // clack.cc is retired as a standalone site — this Worker permanently
+  // redirects all traffic to bomb.sh/clack. Custom domains auto-provision
+  // DNS + TLS once clack.cc's zone is active on this Cloudflare account.
+  "routes": [
+    { "pattern": "clack.cc", "custom_domain": true },
+    { "pattern": "www.clack.cc", "custom_domain": true }
+  ],
+  "observability": {
+    "enabled": true
+  }
+}
